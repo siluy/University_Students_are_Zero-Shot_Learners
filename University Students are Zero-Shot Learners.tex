@@ -1,0 +1,234 @@
+\documentclass[11pt]{article}
+
+% --- PACKAGES for formatting and style ---
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[
+    a4paper,
+    total={6.5in, 9in},
+    top=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% --- CUSTOM COMMANDS ---
+% For bolded definition items
+\newcommand{\defitem}[1]{\vspace{0.8em}\noindent\textbf{#1}}
+
+% --- Redefine section headings to match the original paper ---
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}
+  {1em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+
+
+% --- DOCUMENT START ---
+\begin{document}
+
+% --- TITLE, AUTHORS, ABSTRACT (SINGLE COLUMN) ---
+\hrule height 2pt % Thick line above title
+\vspace{1.5em}
+
+% Title
+\begin{center}
+    {\huge \bfseries  University Students are Zero-Shot Learners}
+\end{center}
+
+\vspace{1.5em}
+\hrule height 0.5pt % Thin line below title
+\vspace{2.5em}
+
+
+% Author Table with real footnotes
+\begin{center}
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}} % Use symbols for footnotes
+    \begin{tabular}{ccc}
+        Sleepy Undergrad\footnote{Equal contribution, mostly in spirit.} & 
+        Procrasti Grad\footnotemark[1]\textsuperscript{\dag} & 
+        All-Nighter Ph.D.\footnote{Equal contribution, mostly in caffeine consumption.}
+    \end{tabular}
+    \renewcommand{\thefootnote}{\arabic{footnote}} % Change back to numbers for other footnotes
+    \setcounter{footnote}{0} % Reset footnote counter
+    \vspace{2em}
+\end{center}
+
+
+% Affiliation
+\begin{center}
+    {\large University of Deadline} \\
+    \vspace{0.5em}
+    {\normalsize Department of Surviving Finals} \\
+    \vspace{0.5em}
+    \texttt{Due: Yesterday (Submitted: 5 Minutes Before Deadline)}
+    \vspace{2.5em}
+\end{center}
+
+% Abstract
+\begin{center}
+    \textbf{Abstract}
+\end{center}
+\begin{quote}
+\noindent We demonstrate that university students exhibit remarkable zero-shot learning capabilities during end-of-semester examinations. Without explicit prior training on course materials (i.e., skipping lectures, avoiding readings), students leverage minimal task-specific prompts ("Past papers," "What's on the exam?") to achieve non-trivial performance. This emergent ability relies heavily on contextual priming (caffeine), parameter-efficient fine-tuning (3-hour cramming sessions), and hallucination resilience (writing essays with conviction despite uncertainty). Our findings challenge traditional education paradigms and suggest exams measure stress tolerance more than knowledge.
+\end{quote}
+
+\vspace{2em}
+\rule{\linewidth}{0.5pt}
+\vspace{2em}
+
+% --- MAIN BODY OF THE PAPER (SINGLE COLUMN) ---
+
+\section{Introduction}
+The emergence of Few-Shot Learning has been widely regarded as a paradigm-shifting capability unique to large-scale Language Models (LLMs), signifying the potential for artificial general intelligence \cite{brown2020language}. This ability—whereby a model can perform novel tasks after exposure to only a handful of examples—has fundamentally altered our understanding of model generalization.
+
+However, our research identifies a far more extreme and consistently demonstrated phenomenon within a different class of intelligent agent: the University Student (US) model. We posit that the defining characteristic of the US model is not few-shot, but rather an exceptional and heretofore under-investigated capacity for \textbf{Zero-Shot Learning}.
+
+This capability, colloquially dismissed as "cramming", has been historically overlooked as a sophisticated cognitive strategy. This paper presents the first systematic analysis of this behavior, framing it as "In-Context Cramming." We will explore its unique optimization algorithms and inherent limitations to argue that the US model's learning efficiency under extreme constraints rivals, in some respects, that of our most advanced artificial intelligences.
+
+\subsection{Related Work}
+\defitem{Traditional Pedagogy:} We note prior work in iterative learning \cite{textbook2020}. However, these methods suffer from extreme computational inefficiency, requiring high uptime (attendance) and constant gradient updates (homework) throughout the 14-week cycle, making them largely incompatible with the US model's energy constraints.
+
+\defitem{Performance Enhancement:} Studies such as \cite{allnighter2023} explored chemical catalysts (caffeine) to boost processing speed, but did not frame the underlying learning mechanism itself as Zero-Shot.
+
+\defitem{Lazy Loading / Just-In-Time Compilation:} The behaviour colloquially known as "procrastination" has been superficially studied \cite{procrast2021}, but we re-frame it not as a bug, but as a feature: an advanced "Lazy Loading" or "Just-In-Time (JIT) Compilation" strategy, only loading data into active memory when the query (exam) is imminent, thus conserving resources.
+
+\defitem{Few-Shot Learning:} While \cite{brown2020language} identified Few-Shot capabilities in LLMs, our work documents the more extreme Zero-Shot case in the US model, suggesting a different underlying architecture.
+
+\section{Methodology}
+\subsection{Model Architecture: The Biological Transformer}
+We posit the US model operates on a Biological Transformer architecture, but with a notoriously unreliable and narrow Attention Window (often < 15 minutes, reduced by notifications).
+\begin{itemize}
+    \item \textbf{Pre-training Data:} The model is pre-trained on a vast, noisy, and largely unlabelled corpus, including: K-12 education, Wikipedia deep-dives, YouTube tutorials, social media feeds, and fragmented life experiences. The relevance of this pre-training to the target task (exam) is highly variable and often minimal.
+    \item \textbf{Compute:} Processing is powered by glucose, caffeine, and pure anxiety. "FLOPs" (Frantic Looks Over Pages) peak exponentially in the final hours. Hardware constraints (e.g., biological need for sleep) often lead to system crashes.
+\end{itemize}
+
+\subsection{Data Collection \& Preprocessing}
+\defitem{Dataset:} Lecture slides (unread), textbook (pristine condition), and a peer's notes (illegible).
+
+\defitem{Preprocessing:} A ruthless filtering process was applied to retain only bolded terms and top-level bullet points, discarding approximately 90\% of the original context.
+
+\defitem{Data Augmentation:} To enhance model creativity, notes were rewritten at 2am under conditions of severe sleep deprivation, inducing novel interpretations of the source material.
+
+\defitem{Data Leakage:} Information obtained via questionable channels about the exact exam content.
+
+\subsection{Model Training (0-Shot Fine-Tuning)}
+\defitem{Optimizer:} Adrenaline-based Stochastic Panic Descent (ASPD).
+
+\defitem{Loss Function:} $\mathcal{L} = \lambda_1 \text{Regret} + \lambda_2 \text{Hope}$.
+
+\defitem{Regularization:} 5-minute TikTok breaks were scheduled hourly to prevent catastrophic overfitting to despair.
+
+\section{Key Results \& Analysis}
+\subsection{Performance Metrics \& Benchmarks}
+We benchmarked the US model on standard datasets: MIDTERM-7 (a 7-week content evaluation), FINAL-14 (a 14-week evaluation) and POP-QUIZ-SURPRISE (true, unprepared zero-shot). Performance is summarized in Table \ref{tab:results}.
+
+\begin{table}[h!]
+\centering
+\caption{Performance comparison. Note that both methods yield identical graduation certificates.}
+\label{tab:results}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Study Method} & \textbf{Avg. Grade} & \textbf{Retention (48hrs)} \\ \midrule
+Iterative (Ideal)   & A                   & 85\%                       \\
+Zero-Shot (Ours)    & C+                  & 8\% (high var.)          \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Emergent Abilities}
+\defitem{Chain-of-Thought (CoT) Prompting:} The internal monologue: "Okay, I remember this keyword... if I link it to that one example... and add some filler... it might look like a coherent argument." This allows the model to generate plausible-sounding sequences without deep understanding.
+
+\defitem{Transfer Learning:} Successfully (and sometimes inappropriately) applying the structure of an essay learned in a history course to an engineering problem set, or vice-versa.
+
+\defitem{Mixture-of-Experts (MoE):} Manifests during Group Study. No single model possesses all the knowledge, but the group functions as an MoE, with each student ("expert") responsible for routing questions to the one member who vaguely remembers reading that specific chapter. Also known as Federated Learning with high information loss.
+
+\section{Discussion}
+\subsection{The Alignment Problem}
+A critical challenge is Alignment. The objective function stated by the instructor (the "Syllabus") aims for deep understanding. However, the US model consistently optimizes for a misaligned objective: achieving the Minimum Viable Grade (MVG) with minimal computational cost (effort). The model aligns not with the syllabus, but with the path of least resistance. 'Grade Grubbing' can be seen as a post-hoc alignment fine-tuning attempt.
+
+\subsection{Vulnerability to Adversarial Attacks}
+The zero-shot US model is highly vulnerable to adversarial prompts, such as: questions requiring synthesis of multiple concepts; questions asking "Explain why?"; oral examinations; or any query probing beyond the cached keywords (out-of-distribution data).
+
+\subsection{Societal Implications}
+\defitem{Pros:} Frees up approximately 80\% of the semester for vital co-curriculars, such as napping, part-time jobs, and managing existential dread.
+
+\defitem{Cons:} The resulting long-term knowledge structure resembles Swiss cheese, characterized by high sparsity and disconnected information nodes \cite{panic2022}.
+
+\subsection{Ethics Statement}
+Is it fair to punish models (students) for successfully leveraging the inherent biases of the dataset (the exam)? We argue the model is simply optimizing for the given objective function under extreme constraints.
+
+\section{Limitations}
+Our primary limitation is Catastrophic Forgetting, as evidenced by the 8\% retention rate (Table 1). Additional limitations include:
+\begin{itemize}
+    \item The method fails on tasks requiring practical skill demonstration (e.g., lab practicals, coding assignments - unless StackOverflow is permitted as an external tool API \cite{stackoverflow}).
+    \item High risk of model Burnout ("hardware failure").
+    \item Inability to inspect the internal state of the model; we rely solely on output and self-reporting (which is unreliable).
+\end{itemize}
+
+\section{Conclusion \& Future Work}
+We have empirically validated that university students are state-of-the-art zero-shot learners. Future research directions include:
+\begin{itemize}
+    \item \textbf{Few-Shot Extension:} Modeling office hours attendance as a form of parameter-efficient fine-tuning (PEFT).
+    \item \textbf{Multi-Modal Learning:} Investigating the fusion of lecture audio (background noise) with textbook images (memes).
+    \item \textbf{RLHF:} Developing a framework for Reinforcement Learning via Hope and Fear.
+\end{itemize}
+\textbf{Code \& Data:} Available upon request, provided we can find the USB drive we used.
+
+% --- REFERENCES ---
+\begin{thebibliography}{9}
+
+\bibitem[All-Nighter, 2023]{allnighter2023}
+A. All-Nighter. (2023).
+\textit{Caffeine vs. Adderall: A Double-Blind Study at 3AM}.
+Journal of Desperate Measures, 42(1), 1-5.
+
+\bibitem[Brown et al., 2020]{brown2020language}
+T. B. Brown, et al. (2020).
+\textit{Language Models are Few-Shot Learners}.
+ArXiv, abs/2005.14165.
+
+\bibitem[Panic, 2022]{panic2022} 
+A. Panic. (2022). 
+\textit{The Swiss-Cheese Knowledge Model: Sparsity in Post-Exam Retention}. 
+Journal of Forgotten Facts, 1(1), 9-12.
+
+\bibitem[Procrast, 2021]{procrast2021}
+N. Procrast. (2021). 
+\textit{Procrastination as Just-in-Time Compilation}. 
+Annals of Avoidance Behaviour.
+
+\bibitem[StackOverflow]{stackoverflow}
+StackOverflow. (Accessed 2020-2025). 
+\textit{External API for Coding Assignment Completion}. 
+Available online.
+
+\bibitem[Syllabus, 2024]{syllabus}
+Course Syllabus. (2024).
+\textit{Course Policies and Schedule of Readings}.
+(Ignored until Week 14).
+
+\bibitem[Textbook, 2020]{textbook2020}
+A. Textbook. (2020). \textit{Chapter 1: The Ideal Learning Method}. Publisher of Unread Books.
+
+\end{thebibliography}
+
+
+% --- APPENDIX ---
+\appendix
+\section{Sample Prompts and Outputs}
+
+\defitem{Prompt:} "Discuss the key themes of [Complex Topic X]".
+
+\defitem{US Model (Zero-Shot) Output:} \textit{"[Complex Topic X] is indeed very complex and important. A key theme is [Keyword 1 from slide 3]. Another key theme is [Keyword 2 from slide 3]. Many scholars have debated [Complex Topic X]. For example, [vague example]. In conclusion, [Complex Topic X] has many key themes and is very important."} (Output demonstrates keyword matching and structure mimicry with zero semantic depth, high confidence).
+
+
+\end{document}
